@@ -11,7 +11,13 @@ struct Movie {
     int rating;
 };
 
+extern struct Movie movieList[MAX_MOVIES];
+extern int numMovies;
+
 void displayMovieList();
 void addMovieToList();
+void updateMovieInfo();
+void deleteMovieInfo();
+void printMovieList();
 
-#endif
+#endif  /* MOVIELIST_H */
