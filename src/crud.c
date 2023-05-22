@@ -47,4 +47,27 @@ int rate() {
 
 void bookTicket() {
     // 영화 티켓 예매 기능의 구현 내용을 작성해주세요.
+    int movieIndex;
+    printf("Enter the index of the movie you want to book a ticket for: ");
+    scanf("%d", &movieIndex);
+
+    // Check if the movie index is valid
+    if (movieIndex < 1 || movieIndex > numMovies) {
+        printf("Invalid movie index.\n");
+        return;
+    }
+
+    // Subtract 1 to match the array index
+    movieIndex--;
+
+    // Check if the movie is available for booking
+    if (movieList[movieIndex].isBooked) {
+        printf("This movie is already booked.\n");
+        return;
+    }
+
+    // Book the ticket for the selected movie
+    movieList[movieIndex].isBooked = 1;
+
+    printf("Ticket booked successfully for the movie: %s\n", movieList[movieIndex].title);
 }
