@@ -8,6 +8,7 @@
 #include "people.h"
 #include "check.h"
 #include "seatLeft.h"
+#include "movieInfo.h"
 
 int menuSelection(){
     int num;
@@ -55,10 +56,10 @@ int main(){
             addMovieToList();
         }
         else if(menu == 3){
-            //updateMovieInfo();
+            updateMovieInfo();
         }
         else if(menu == 4){
-            //deleteMovieInfo();
+            deleteMovieInfo();
         }
         else if(menu == 5){
             storeData();

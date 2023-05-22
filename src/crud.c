@@ -26,24 +26,21 @@ void storeData() {
 }
 
 int rate() {
-    int numGood = 0;
-    int numTotal = 0;
-    char rating[10];
+    int index;
+    printf("Enter the index of the movie you want to rate: ");
+    scanf("%d", &index);
 
-    printf("Rate the movie (good/bad): ");
-    scanf("%s", rating);
-
-    // 입력된 평가를 기반으로 긍정적인 평가인지 판별하고 개수를 증가시킴
-    if (strcmp(rating, "good") == 0) {
-        numGood++;
+    if (index <= 0 || index > numMovies) {
+        printf("Invalid movie index.\n");
+        return 0;
     }
 
-    numTotal++;
-
-    // 긍정 비율 계산
-    int positivityRatio = (int)(((double)numGood / (double)numTotal) * 100);
-
-    return positivityRatio;
+    int r;
+    printf("rate movie plz(0 - 10):");
+    scanf("%d", r);
+    movieList[index].rating *= r;
+    movieList[index].rating /= 10;
+    return r;
 }
 
 void bookTicket() {

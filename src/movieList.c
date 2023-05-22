@@ -47,6 +47,3 @@ void addMovieToList() {
 
     printf("Movie added successfully!\n");
 }
-
-void updateMovieInfo();
-void deleteMovieInfo();
