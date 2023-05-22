@@ -2,23 +2,8 @@
 #include "crud.h"
 #include "movieList.h"
 
-void read() {
-    // 데이터 읽기 기능의 구현 내용을 작성해주세요.
-}
-void deleteObj() {
-    // 객체 삭제 기능의 구현 내용을 작성해주세요.
-}
-
-void updateObj() {
-    // 객체 업데이트 기능의 구현 내용을 작성해주세요.
-}
-
-void loadData() {
-    // 데이터 로드 기능의 구현 내용을 작성해주세요.
-}
-
 void storeData() {
-    FILE* file = fopen("movieList.txt", "w");
+    FILE* file = fopen("movieList.txt", "wt");
     if (file == NULL) {
         printf("Failed to open file for writing.\n");
         return;

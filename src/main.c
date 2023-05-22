@@ -31,6 +31,8 @@ int main(){
 
     int menu, cnt = 0, id = 0;
     User *userArr = (User*)malloc(sizeof(User));
+    userArr->data = (Account*)malloc(sizeof(Account));
+    userArr->next = NULL;
     Account *cur = NULL;
     
 
@@ -43,10 +45,10 @@ int main(){
             addMovieToList();
         }
         else if(menu == 3){
-            updateObj();
+            updateMovieInfo();
         }
         else if(menu == 4){
-            deleteObj();
+            deleteMovieInfo();
         }
         else if(menu == 5){
             storeData();
@@ -63,12 +65,12 @@ int main(){
         }
         else if(menu == 8){
             User * temp = userArr;
-            while(temp->next != NULL){
+            while(temp != NULL){
                 temp = temp->next;
             }
-            temp->next = (User*)malloc(sizeof(User));
-            temp = temp->next;
-            createAccount(temp->data.id, temp->data.pw);
+            temp = (User*)malloc(sizeof(User));
+            temp->data = (Account*)malloc(sizeof(Account));
+            createAccount(temp->data);
         }
         else if(menu == 9){
             char uid[30], passwd[30];
@@ -77,13 +79,13 @@ int main(){
             printf("passwd: ");
             scanf("%s", passwd);
             
-            login(id, passwd, userArr);
+            login(uid, passwd, userArr);
         }
         else if(menu == 10){
             logout(cur);
         }
         else if(menu == 0){
-            pritnf("Have a good time!\n");
+            printf("Have a good time!\n");
             break;
         }else{
             printf("Fail to fine such menu id please try again\n");

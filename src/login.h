@@ -9,13 +9,13 @@ typedef struct ac{
 }Account;
 
 typedef struct users{
-    Account data;
+    Account *data;
     struct users * next;
 }User;
 
 
-int createAccount();
-int login(char* id, char* passwd, User*);
+void createAccount(Account * urs);
+Account * login(char* id, char* passwd, User*);
 int logout(Account *cur);
 
 #endif
