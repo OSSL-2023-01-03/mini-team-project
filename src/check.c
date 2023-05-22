@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-void display(int member){
+void displayCheck(int member){
         char s1[10];
         char st[10];
         for(int i = 0; i < member; i++){

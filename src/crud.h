@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 void storeData();
-char rate();
+int rate();
 void bookTicket();
 
 #endif

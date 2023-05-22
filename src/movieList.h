@@ -4,6 +4,7 @@
 #define MAX_MOVIES 100
 
 struct Movie {
+    int isBooked;
     char title[100];
     int year;
     char director[100];
