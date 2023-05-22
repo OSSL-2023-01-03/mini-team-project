@@ -4,6 +4,8 @@
 #include "crud.h"
 #include "login.h"
 #include "movieList.h"
+#include "seat.h"
+
 
 int menuSelection(){
     int num;
@@ -19,7 +21,8 @@ int menuSelection(){
     printf("7. book movie ticket\n");
     printf("8. resgister\n");
     printf("9. login\n");
-    printf("10.logout\n");
+    printf("10. logout\n");
+    printf("11. seat\n");
     printf("0. exit\n\n");
 
     printf("your selection: ");
@@ -35,6 +38,7 @@ int main(){
     userArr->next = NULL;
     Account *cur = NULL;
     
+    
 
     while(1){
         menu = menuSelection();
@@ -45,10 +49,10 @@ int main(){
             addMovieToList();
         }
         else if(menu == 3){
-            //updateMovieInfo();
+            updateMovieInfo();
         }
         else if(menu == 4){
-            //deleteMovieInfo();
+            deleteMovieInfo();
         }
         else if(menu == 5){
             storeData();
@@ -64,16 +68,13 @@ int main(){
             }
         }
         else if(menu == 8){
-            User *newUser = (User*)malloc(sizeof(User));
-            newUser->data = (Account*)malloc(sizeof(Account));
-            createAccount(newUser->data);
-            newUser->next = NULL;
-
-            User *temp = userArr;
-            while (temp->next != NULL) {
+            User * temp = userArr;
+            while(temp != NULL){
                 temp = temp->next;
             }
-            temp->next = newUser;
+            temp = (User*)malloc(sizeof(User));
+            temp->data = (Account*)malloc(sizeof(Account));
+            createAccount(temp->data);
         }
         else if(menu == 9){
             char uid[30], passwd[30];
@@ -82,10 +83,13 @@ int main(){
             printf("passwd: ");
             scanf("%s", passwd);
             
-            cur = login(uid, passwd, userArr);
+            login(uid, passwd, userArr);
         }
         else if(menu == 10){
             logout(cur);
+        }
+        else if(menu == 11){
+            displaySeat();
         }
         else if(menu == 0){
             printf("Have a good time!\n");
