@@ -10,7 +10,7 @@ void deleteObj();
 void updateObj();
 void loadData();
 void storeData();
-void rate();
+char rate();
 void bookTicket();
 
 #endif

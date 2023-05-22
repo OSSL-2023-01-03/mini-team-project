@@ -24,8 +24,25 @@ void storeData() {
     printf("Movie data stored successfully.\n");
 }
 
-void rate() {
-    // 영화 평점 매기기 기능의 구현 내용을 작성해주세요.
+int rate() {
+    int numGood = 0;
+    int numTotal = 0;
+    char rating[10];
+
+    printf("Rate the movie (good/bad): ");
+    scanf("%s", rating);
+
+    // 입력된 평가를 기반으로 긍정적인 평가인지 판별하고 개수를 증가시킴
+    if (strcmp(rating, "good") == 0) {
+        numGood++;
+    }
+
+    numTotal++;
+
+    // 긍정 비율 계산
+    int positivityRatio = (int)(((double)numGood / (double)numTotal) * 100);
+
+    return positivityRatio;
 }
 
 void bookTicket() {

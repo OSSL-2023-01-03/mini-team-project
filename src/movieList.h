@@ -8,7 +8,7 @@ struct Movie {
     int year;
     char director[100];
     char cast[100];
-    int rating;
+    char rating;
 };
 
 extern struct Movie movieList[MAX_MOVIES];
