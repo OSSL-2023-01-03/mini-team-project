@@ -4,6 +4,10 @@
 #include "crud.h"
 #include "login.h"
 #include "movieList.h"
+#include "seat.h"
+#include "people.h"
+#include "check.h"
+#include "seatLeft.h"
 
 int menuSelection(){
     int num;
@@ -19,7 +23,11 @@ int menuSelection(){
     printf("7. book movie ticket\n");
     printf("8. resgister\n");
     printf("9. login\n");
-    printf("10.logout\n");
+    printf("10. logout\n");
+    printf("11. seat\n");
+    printf("12. seatLeft\n");
+    printf("13. people\n");
+    printf("14. check\n");
     printf("0. exit\n\n");
 
     printf("your selection: ");
@@ -34,6 +42,8 @@ int main(){
     userArr->data = (Account*)malloc(sizeof(Account));
     userArr->next = NULL;
     Account *cur = NULL;
+    int name;
+    int member;
     
 
     while(1){
@@ -86,6 +96,21 @@ int main(){
         }
         else if(menu == 10){
             logout(cur);
+        }
+        else if(menu == 11){
+            displaySeat();
+        }
+        else if(menu == 12){
+            member = addPeople(); 
+            displayLeft(member);
+        }
+        else if(menu == 13){
+            member = addPeople();   
+            displayPeople(member);
+        }
+        else if(menu == 14){
+            member = addPeople(); 
+            displayCheck(member);
         }
         else if(menu == 0){
             printf("Have a good time!\n");
