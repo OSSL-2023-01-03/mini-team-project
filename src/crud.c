@@ -37,9 +37,9 @@ int rate() {
 
     int r;
     printf("rate movie plz(0 - 10):");
-    scanf("%d", r);
-    movieList[index].rating *= r;
-    movieList[index].rating /= 10;
+    scanf("%d", &r);
+    movieList[index - 1].rating *= r;
+    movieList[index - 1].rating /= 10;
     return r;
 }
 
