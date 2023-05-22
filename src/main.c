@@ -19,7 +19,7 @@ int menuSelection(){
     printf("7. book movie ticket\n");
     printf("8. resgister\n");
     printf("9. login\n");
-    printf("10. logout\n");
+    printf("10.logout\n");
     printf("0. exit\n\n");
 
     printf("your selection: ");
@@ -45,10 +45,10 @@ int main(){
             addMovieToList();
         }
         else if(menu == 3){
-            updateMovieInfo();
+            //updateMovieInfo();
         }
         else if(menu == 4){
-            deleteMovieInfo();
+            //deleteMovieInfo();
         }
         else if(menu == 5){
             storeData();
@@ -64,13 +64,16 @@ int main(){
             }
         }
         else if(menu == 8){
-            User * temp = userArr;
-            while(temp != NULL){
+            User *newUser = (User*)malloc(sizeof(User));
+            newUser->data = (Account*)malloc(sizeof(Account));
+            createAccount(newUser->data);
+            newUser->next = NULL;
+
+            User *temp = userArr;
+            while (temp->next != NULL) {
                 temp = temp->next;
             }
-            temp = (User*)malloc(sizeof(User));
-            temp->data = (Account*)malloc(sizeof(Account));
-            createAccount(temp->data);
+            temp->next = newUser;
         }
         else if(menu == 9){
             char uid[30], passwd[30];
@@ -79,7 +82,7 @@ int main(){
             printf("passwd: ");
             scanf("%s", passwd);
             
-            login(uid, passwd, userArr);
+            cur = login(uid, passwd, userArr);
         }
         else if(menu == 10){
             logout(cur);
